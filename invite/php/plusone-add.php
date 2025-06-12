@@ -1,5 +1,5 @@
 <?php
-$apiKey = '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';
+$apiKey = '//add own key//';
 
 $name = trim($_POST['name'] ?? '');
 if ($name === '') {
