@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Already RSVP’d 😎</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="grad.png" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: linear-gradient(135deg, #1f1f2e, #283e51);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.3);
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #00ffe7;
+      margin-bottom: 16px;
+    }
+    #message {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+    }
+    .emoji-btn {
+      font-size: 2.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .emoji-btn:hover {
+      transform: scale(1.2);
+    }
+    .note {
+      font-size: 1rem;
+      margin-top: 20px;
+      color: #aafaf3;
+      font-style: italic;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 10px;
+    }
+    .label {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #aadbd7;
+      font-style: italic;
+    }
+
+    @keyframes from-left {
+      0% { opacity: 0; transform: translateX(-80px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes from-right {
+      0% { opacity: 0; transform: translateX(80px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes from-top {
+      0% { opacity: 0; transform: translateY(-80px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes from-bottom {
+      0% { opacity: 0; transform: translateY(80px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .wind-animate {
+      opacity: 0;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="wind-animate">
+      Whoa there, Time Traveller! 
+      <a href="guest-list.php" title="View Guest List" style="text-decoration:none; color:#00ffe7;">⏳</a>
+    </h1>
+    <p id="message" class="wind-animate">You already RSVP’d — just like a legend would.</p>
+
+    <div class="btn-group wind-animate">
+      <div>
+        <form action="plusone.html">
+          <button class="emoji-btn" type="submit" title="Add a Plus One">➕</button>
+        </form>
+        <div class="label">Add a Plus One</div>
+      </div>
+      <div>
+        <form action="thankyou.html">
+          <button class="emoji-btn" type="submit" title="No thanks">❌</button>
+        </form>
+        <div class="label">No thanks, I’m good 👍</div>
+      </div>
+    </div>
+
+    <div class="note wind-animate">Or gimme a call 👩‍🦯‍➡️ if typing’s too much.</div>
+  </div>
+
+  <script>
+    const messages = [
+      "You’ve already RSVP’d. You’re a VIP in the system 🎟️",
+      "Trying to RSVP twice? Bold move, traveler 🔮",
+      "No need to double-dip the invite 😎",
+      "Your spot's saved. Unless you're cloning yourself 👯‍♂️",
+      "You're already in. This ain’t the Matrix 👾",
+      "Time-loop detected. But don't worry, you're locked in 🌀",
+      "That RSVP is etched in digital stone 🪨✨"
+    ];
+    document.getElementById("message").textContent =
+      messages[Math.floor(Math.random() * messages.length)];
+
+    const directions = ['from-left', 'from-right', 'from-top', 'from-bottom'];
+    const animated = document.querySelectorAll('.wind-animate');
+    animated.forEach((el, i) => {
+      const dir = directions[Math.floor(Math.random() * directions.length)];
+      el.style.animationName = dir;
+      el.style.animationDelay = `${i * 0.2}s`;
+    });
+  </script>
+</body>
+</html>

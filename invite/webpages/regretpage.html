@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>We'll Miss You 😢</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #00ffe7;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-top: 10px;
+    }
+
+    .note {
+      font-style: italic;
+      font-size: 1rem;
+      margin-top: 20px;
+      color: #a0fdf4;
+    }
+
+    .waterfall {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(0, 255, 255, 0.15);
+      animation: fall 1.5s linear infinite;
+      animation-delay: calc(var(--i) * 0.15s);
+    }
+
+    @keyframes fall {
+      0% {
+        height: 0;
+        top: 0;
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        height: 100%;
+        top: 100%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h1>Oh nooo 😢</h1>
+    <p>We're sad you can't make it...</p>
+    <p>But super grateful you took the time to RSVP 🧡</p>
+    <p>We'll miss your vibes, your dance moves, and your energy! 🕺💃</p>
+    <div class="emoji">💔🌧️✨</div>
+    <div class="note">Until next time — sending good vibes your way 🚀</div>
+  </div>
+
+  <script>
+    for (let i = 0; i < 60; i++) {
+      const div = document.createElement("div");
+      div.className = "waterfall";
+      div.style.left = Math.random() * 100 + "vw";
+      div.style.setProperty("--i", i);
+      document.body.appendChild(div);
+    }
+  </script>
+</body>
+</html>

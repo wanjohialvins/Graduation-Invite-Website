@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎓 Graduation Party Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="grad.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      animation: backgroundShift 15s ease infinite alternate;
+      overflow-x: hidden;
+    }
+
+    @keyframes backgroundShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1,
+    .details,
+    .input-section,
+    .buttons {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.4s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 28px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .details {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 20px 0;
+    }
+
+    .highlight {
+      color: #00ffe7;
+      font-weight: bold;
+    }
+
+    .pin-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 12px;
+      font-size: 15px;
+      color: #00ffe7;
+      text-decoration: none;
+      font-weight: 600;
+      user-select: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .pin-link:hover {
+      color: #00b7ff;
+      text-decoration: underline;
+    }
+
+    .pin-icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      fill: currentColor;
+      filter: drop-shadow(0 0 1px rgba(0, 255, 231, 0.8));
+    }
+
+    .wisecrack {
+      margin-top: 25px;
+      font-style: italic;
+      color: #77ffdd;
+      font-size: 14px;
+    }
+
+    .input-section {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 12px 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      width: 100%;
+      max-width: 320px;
+      outline: none;
+    }
+
+    .instructions {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #ccc;
+      transition: color 0.4s ease;
+    }
+
+    .instructions.warn {
+      color: #ff6a6a;
+      font-weight: 600;
+      animation: fadeInWarn 0.5s ease;
+    }
+
+    @keyframes fadeInWarn {
+      from {
+        opacity: 0;
+        transform: translateY(-3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+      align-items: center;
+    }
+
+    .btn {
+      display: block;
+      position: relative;
+      padding: 12px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #00ffe7, #00b7ff);
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn.no {
+      background: linear-gradient(135deg, #999, #666);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 255, 231, 0.4);
+    }
+
+    .pull-effect {
+      animation: gravityPulse 0.8s ease-in-out;
+    }
+
+    @keyframes gravityPulse {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      30% {
+        transform: scale(0.9) translateY(-8px) rotate(-2deg);
+      }
+      60% {
+        transform: scale(1.05) translateY(5px) rotate(2deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="heading">🎓 You've Been Invited!</h1>
+    <p class="details" id="details">
+      🎉 Come celebrate the graduation of <span class="highlight">Alvins Wanjohi</span><br /><br />
+      📅 <strong>Date:</strong> <span class="highlight">5th July</span><br />
+      ⏰ <strong>Time:</strong> <span class="highlight">1 PM</span><br />
+      📍 <strong>Location:</strong> <span class="highlight">Jambo Village</span><br />
+      <a href="https://maps.app.goo.gl/mpvg3xWt2Lb8ikwT8" target="_blank" class="pin-link">
+        <svg class="pin-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z" />
+        </svg>
+        Click here for directions
+      </a>
+    </p>
+
+    <div class="wisecrack">
+      🖥️ <strong>– let's reboot life’s next big update! 🎉</strong>
+    </div>
+
+    <div class="input-section" id="input-section">
+      <label for="recipientName">📝 Enter your full name:</label><br /><br />
+      <input type="text" id="recipientName" placeholder="e.g., Jane Doe" autocomplete="off" />
+      <div class="instructions">* Please enter both first and last name, separated by a space</div>
+    </div>
+
+    <div class="buttons" id="buttons">
+      <button class="btn" id="yesBtn" type="button">✅ Yes, I’m coming</button>
+      <button class="btn no" id="noBtn" type="button">❌ No, I’m not available</button>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("recipientName");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const instructions = document.querySelector(".instructions");
+
+    let allowClick = false;
+
+    window.onload = () => {
+      setTimeout(() => document.getElementById("heading").classList.add("show"), 400);
+      setTimeout(() => document.getElementById("details").classList.add("show"), 1400);
+      setTimeout(() => document.getElementById("input-section").classList.add("show"), 2400);
+      setTimeout(() => document.getElementById("buttons").classList.add("show"), 3200);
+    };
+
+    const isFullName = (text) => {
+      return text.trim().split(/\s+/).length >= 2;
+    };
+
+    input.addEventListener("input", () => {
+      allowClick = isFullName(input.value);
+      if (allowClick) {
+        yesBtn.classList.remove("pull-effect");
+        noBtn.classList.remove("pull-effect");
+        instructions.classList.remove("warn");
+      }
+    });
+
+    const triggerPullEffect = (btn) => {
+      btn.classList.add("pull-effect");
+      instructions.classList.add("warn");
+      setTimeout(() => {
+        btn.classList.remove("pull-effect");
+        instructions.classList.remove("warn");
+      }, 1000);
+    };
+
+    const sendResponse = (response) => {
+      const name = input.value.trim();
+      const encodedName = encodeURIComponent(name);
+      window.location.href = `rsvp.php?response=${response}&name=${encodedName}`;
+    };
+
+    yesBtn.addEventListener("click", () => {
+      if (allowClick) {
+        sendResponse("yes");
+      } else {
+        triggerPullEffect(yesBtn);
+      }
+    });
+
+    noBtn.addEventListener("click", () => {
+      if (allowClick) {
+        sendResponse("no");
+      } else {
+        triggerPullEffect(noBtn);
+      }
+    });
+  </script>
+</body>
+</html>
